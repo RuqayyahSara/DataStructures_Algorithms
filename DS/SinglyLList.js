@@ -19,6 +19,19 @@ class LinkedList{
         this.head= newNode;  
      }
     
+    removeHead(){
+        if(this.head===null && this.tail===null){
+            console.log("List is empty");
+        }
+        else if(this.head===this.tail){
+            this.head= null;
+            this.tail=null;
+        }
+        else{
+            this.head = this.head.next;
+        }
+       }
+
      addToTail(value){
         const newNode = new Node(value,null);
         if(!this.tail){
@@ -35,4 +48,5 @@ const ll = new LinkedList();
 ll.addToHead(100);
 ll.addToHead(200);
 ll.addToTail(700);
+// ll.removeHead();
 console.log(ll);
