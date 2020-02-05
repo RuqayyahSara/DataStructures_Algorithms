@@ -42,11 +42,33 @@ class LinkedList{
     }
     this.tail= newNode;  
      }
+     removeTail(){
+        if(this.head===null && this.tail===null){
+            console.log("List is empty");
+        }
+        else if(this.head===this.tail){
+            this.head= null;
+            this.tail=null;
+        }
+        else{
+            var curr = new Node();
+            var prev = new Node();
+            curr = this.head;
+            while(curr.next!==null){
+                prev = curr;
+                curr = curr.next;
+            }
+            this.tail=prev;
+            prev.next=null;
+
+        }
+    }
 }   
 
 const ll = new LinkedList();
 ll.addToHead(100);
 ll.addToHead(200);
 ll.addToTail(700);
-// ll.removeHead();
+ll.addToTail(8000);
+ll.removeTail();
 console.log(ll);
